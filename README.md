@@ -1,9 +1,9 @@
 # Taro + Typescript + Taro UI + React 17
 
 [![Author](https://img.shields.io/badge/author-XPoet-orange.svg)](https://github.com/machao07)
-[![License](https://img.shields.io/github/license/XPoet/vite-vue3-starter.svg)](https://github.com/machao07/react-admin)
-[![Stars](https://img.shields.io/github/stars/XPoet/vite-vue3-starter)](https://github.com/machao07/react-admin)
-[![Deploy](https://github.com/XPoet/vite-vue3-starter/workflows/deploy/badge.svg)](https://github.com/machao07/react-admin)
+[![License](https://img.shields.io/github/license/XPoet/vite-vue3-starter.svg)](https://github.com/machao07/front-end-technology-app)
+[![Stars](https://img.shields.io/github/stars/XPoet/vite-vue3-starter)](https://github.com/machao07/front-end-technology-app)
+[![Deploy](https://github.com/XPoet/vite-vue3-starter/workflows/deploy/badge.svg)](https://github.com/machao07/front-end-technology-app)
 <!-- [![JavaScript Style Guide](https://img.shields.io/badge/code_style-Airbnb-hotpink.svg)]() -->
 
 > 一套完美集成 Taro + Typescript + Taro UI + React 17 等健壮的前端快速开发小程序模板
