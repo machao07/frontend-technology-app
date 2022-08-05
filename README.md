@@ -18,7 +18,7 @@
 - 构建工具：[Taro 脚手架工具](https://taro-docs.jd.com/taro/docs/cli/)
 - 前端框架：[React 17.0.0](https://react.docschina.org/docs/getting-started.html)
 - 状态管理：[Redux 4.x](https://www.redux.org.cn/)
-- UI 框架：[Ant Design](https://ant.design/components/overview-cn/)
+- UI 框架：[Taro UI](https://taro-ui.jd.com/#/docs/quickstart)
 - CSS 预编译：[Stylus](https://stylus-lang.com/) / [Sass](https://sass.bootcss.com/documentation) / [Less](http://lesscss.cn/)
 - Git Hook 工具：[husky](https://typicode.github.io/husky/#/) + [lint-staged](https://github.com/okonet/lint-staged)
 - 代码规范：[Prettier](https://prettier.io/) + [ESLint](https://eslint.org/)
