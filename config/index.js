@@ -24,13 +24,19 @@ const config = {
             pxtransform: {
                 enable: true,
                 config: {
-
+                    onePxTransform: true,
+                    unitPrecision: 5,
+                    propList: ['*'],
+                    selectorBlackList: [],
+                    replace: true,
+                    mediaQuery: false,
+                    minPixelValue: 0
                 }
             },
             url: {
                 enable: true,
                 config: {
-                    limit: 1024 // 设定转换尺寸上限
+                    limit: 10240 // 设定转换尺寸上限
                 }
             },
             cssModules: {
@@ -50,6 +56,13 @@ const config = {
             autoprefixer: {
                 enable: true,
                 config: {
+                    onePxTransform: true,
+                    unitPrecision: 5,
+                    propList: ['*'],
+                    selectorBlackList: [],
+                    replace: true,
+                    mediaQuery: false,
+                    minPixelValue: 0
                 }
             },
             cssModules: {
