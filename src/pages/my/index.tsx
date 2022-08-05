@@ -5,6 +5,8 @@ import TabBar from '../../components/tarBar'
 import List from '../../components/list'
 import { AtAvatar, AtModal } from 'taro-ui'
 import Taro from '@tarojs/taro'
+import BannerImg from '../../assets/miniapp_banner.png'
+
 
 interface listDTO {
     key: string
@@ -48,10 +50,16 @@ export default class My extends Component<any, States> {
     handleClick(item: any) {
         switch (item.key) {
             case 'share':
-
                 break;
             case 'about':
 
+                break;
+            case 'praise':
+                Taro.previewImage({
+                    urls: [
+                        'https://github.com/machao07/image-store/blob/master/mini-app/praise.png?raw=true'
+                    ]
+                })
                 break;
             case 'github':
             case 'blog':
@@ -59,7 +67,6 @@ export default class My extends Component<any, States> {
             case 'design':
                 this.setState({ listInfo: item, isOpened: true })
                 break;
-
             default:
                 break;
         }
@@ -104,7 +111,7 @@ export default class My extends Component<any, States> {
                 isArrow: true,
                 arrow: 'right',
                 title: '个人技术博客',
-                url: 'https://machao07.github.io/'
+                url: 'https://machao07.github.io'
             },
             {
                 key: 'csdn',
@@ -118,7 +125,7 @@ export default class My extends Component<any, States> {
                 isArrow: true,
                 arrow: 'right',
                 title: '设计作品集',
-                url: 'https://machao07.zcool.com.cn/'
+                url: 'https://machao07.zcool.com.cn'
             }
         ]
         const { userInfo, listInfo, isOpened } = this.state
@@ -140,11 +147,11 @@ export default class My extends Component<any, States> {
                 />
 
                 <TabBar currentIndex={2} />
-
                 <AtModal
+                    className="modal"
                     isOpened={isOpened}
                     title={listInfo?.title}
-                    confirmText='复制'
+                    confirmText='一键复制'
                     closeOnClickOverlay={false}
                     onConfirm={this.handleConfirm.bind(this)}
                     content={listInfo?.url}
