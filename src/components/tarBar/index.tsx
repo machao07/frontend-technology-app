@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { AtTabBar, } from 'taro-ui'
 import Taro from '@tarojs/taro'
 import './index.scss'

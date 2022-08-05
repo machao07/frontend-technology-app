@@ -7,6 +7,7 @@
     bottom: 0;
     overflow-y: auto;
     .avatar{
+        margin-bottom: 20px;
         background: #fff;
         height: 320px;
         display: flex;
@@ -14,10 +15,7 @@
         justify-content: center;
         align-items: center;
         .name{
-            margin-top: 10px;
+            margin-top: 20px;
         }
-    }
-    .list{
-        margin-top: 30px;
     }
 }
