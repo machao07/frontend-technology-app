@@ -2,8 +2,10 @@ import { Component } from 'react'
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
 import { AtNoticebar, AtGrid } from 'taro-ui'
 import BannerImg from '../../assets/miniapp_banner.png'
+import BannerNode from '../../assets/node.png'
 import './index.scss'
 import TabBar from '../../components/tarBar'
+import Taro from '@tarojs/taro'
 
 export default class Index extends Component<any, any> {
 
@@ -41,7 +43,7 @@ export default class Index extends Component<any, any> {
             default:
                 break;
         }
-        return location.href = hrefURL
+        return Taro.navigateTo({ url: hrefURL })
     }
 
     render() {
@@ -91,16 +93,16 @@ export default class Index extends Component<any, any> {
                         <SwiperItem>
                             <View className='swiperItem'>
                                 <Image className="swiperImage" src={BannerImg} />
-                            </View>
-                        </SwiperItem>
+                            </View>                            
+                        </SwiperItem>                      
                     </Swiper>
-                    <AtNoticebar marquee speed={60} icon='volume-plus'>
-                        这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏
+                    <AtNoticebar marquee speed={80} icon='volume-plus'>
+                        GitHub 正在更新整理前端技术栈面试知识点（持续更新中🏃）
                     </AtNoticebar>
                 </View>
 
                 <AtGrid className='grid' data={gridData} onClick={this.handleGridClick.bind(this)} />
-                <TabBar currentIndex={0}/>
+                <TabBar currentIndex={0} />
             </View>
         )
     }

@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components'
 import './index.scss'
 import TabBar from '../../components/tarBar'
 import List from '../../components/list'
-import { AtAvatar } from 'taro-ui'
+import { AtAvatar, AtModal } from 'taro-ui'
 import Taro from '@tarojs/taro'
 
 interface listDTO {
@@ -11,17 +11,22 @@ interface listDTO {
     isArrow: boolean
     arrow: "right" | "up" | "down" | undefined
     title: string
+    url?: string
 }
 
 interface States {
     userInfo: any
+    listInfo: listDTO | undefined
+    isOpened: boolean
 }
 
 export default class My extends Component<any, States> {
     constructor(props) {
         super(props)
         this.state = {
-            userInfo: {}
+            userInfo: {},
+            listInfo: undefined,
+            isOpened: false
         }
     }
 
@@ -41,7 +46,27 @@ export default class My extends Component<any, States> {
     }
 
     handleClick(item: any) {
-        console.log(item)
+        switch (item.key) {
+            case 'share':
+
+                break;
+            case 'about':
+
+                break;
+            case 'github':
+            case 'blog':
+            case 'csdn':
+            case 'design':
+                this.setState({ listInfo: item, isOpened: true })
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    handleConfirm() {
+        this.setState({ isOpened: false })
     }
 
     render() {
@@ -71,28 +96,32 @@ export default class My extends Component<any, States> {
                 key: 'github',
                 isArrow: true,
                 arrow: 'right',
-                title: 'GitHub'
+                title: 'GitHub',
+                url: 'https://github.com/machao07'
             },
             {
                 key: 'blog',
                 isArrow: true,
                 arrow: 'right',
-                title: '个人技术博客'
+                title: '个人技术博客',
+                url: 'https://machao07.github.io/'
             },
             {
                 key: 'csdn',
                 isArrow: true,
                 arrow: 'right',
-                title: 'CSDN博客'
+                title: 'CSDN博客',
+                url: 'https://blog.csdn.net/weixin_43924228'
             },
             {
                 key: 'design',
                 isArrow: true,
                 arrow: 'right',
-                title: '设计作品集'
+                title: '设计作品集',
+                url: 'https://machao07.zcool.com.cn/'
             }
         ]
-        const { userInfo } = this.state
+        const { userInfo, listInfo, isOpened } = this.state
         return (
             <View className="my">
                 <View className="avatar" onClick={this.getUserProfile.bind(this)}>
@@ -111,6 +140,15 @@ export default class My extends Component<any, States> {
                 />
 
                 <TabBar currentIndex={2} />
+
+                <AtModal
+                    isOpened={isOpened}
+                    title={listInfo?.title}
+                    confirmText='复制'
+                    closeOnClickOverlay={false}
+                    onConfirm={this.handleConfirm.bind(this)}
+                    content={listInfo?.url}
+                />
             </View>
         )
     }

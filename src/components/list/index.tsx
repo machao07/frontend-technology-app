@@ -7,6 +7,7 @@ type listDTO = {
     isArrow: boolean
     arrow: "right" | "up" | "down" | undefined
     title: string
+    url?: string
 }
 
 interface Props {
@@ -28,7 +29,7 @@ export default class TabBar extends Component<Props, any> {
                             key={item.key}
                             arrow={item.arrow}
                             title={item.title}
-                            onClick={this.props.onClick(item)}
+                            onClick={() => this.props.onClick(item)}
                         />
                     })
                 }
