@@ -1,0 +1,31 @@
+.home {
+  width: 100%;
+  height: 100%;
+  background: #f1f1f1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+
+  .swiper {
+    .swiperItem {
+        width: 100%;
+        height: 300px;
+      .swiperImage {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .grid {
+    background: #fff;
+  }
+
+  .tabBar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
