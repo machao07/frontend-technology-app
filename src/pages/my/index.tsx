@@ -52,8 +52,6 @@ export default class My extends Component<any, States> {
 
     handleClick(item: any) {
         switch (item.key) {
-            case 'share':
-                break;
             case 'about':
 
                 break;
@@ -68,7 +66,13 @@ export default class My extends Component<any, States> {
             case 'blog':
             case 'csdn':
             case 'design':
+            case 'taro':
                 this.setState({ listInfo: item, isOpened: true })
+                break;
+            case 'taroUi':
+                Taro.navigateToMiniProgram({
+                    appId: 'wx1c6850423c0ff174',
+                })
                 break;
             default:
                 break;
@@ -92,12 +96,6 @@ export default class My extends Component<any, States> {
     render() {
         const list: listDTO[] = [
             {
-                key: 'share',
-                isArrow: true,
-                arrow: 'right',
-                title: '分享小程序'
-            },
-            {
                 key: 'about',
                 isArrow: true,
                 arrow: 'right',
@@ -111,7 +109,7 @@ export default class My extends Component<any, States> {
             }
         ]
 
-        const linkList: listDTO[] = [
+        const mylinkList: listDTO[] = [
             {
                 key: 'github',
                 isArrow: true,
@@ -141,6 +139,23 @@ export default class My extends Component<any, States> {
                 url: 'https://machao07.zcool.com.cn'
             }
         ]
+
+        const linkList: listDTO[] = [
+            {
+                key: 'taro',
+                isArrow: true,
+                arrow: 'right',
+                title: 'Taro API',
+                url: 'https://taro-docs.jd.com/taro/docs/apis/about/desc'
+            },
+            {
+                key: 'taroUi',
+                isArrow: true,
+                arrow: 'right',
+                title: 'Taro UI',
+                url: 'https://taro-ui.jd.com/#/docs/quickstart'
+            },
+        ]
         const { userInfo, listInfo, isOpened } = this.state
         return (
             <View className="my" >
@@ -151,6 +166,11 @@ export default class My extends Component<any, States> {
 
                 <List
                     list={list}
+                    onClick={this.handleClick.bind(this)}
+                />
+
+                <List
+                    list={mylinkList}
                     onClick={this.handleClick.bind(this)}
                 />
 
@@ -169,6 +189,9 @@ export default class My extends Component<any, States> {
                     onConfirm={() => this.handleConfirm(listInfo as any)}
                     content={listInfo?.url}
                 />
+                <View className="copyright">
+                    <Text >Copyright © 2022 Created by Machao.</Text>
+                </View>
             </View>
         )
     }

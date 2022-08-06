@@ -82,7 +82,7 @@ export default class Index extends Component<any, any> {
                         </View>
                     </SwiperItem>
                 </Swiper>
-                <AtNoticebar marquee speed={95} icon='volume-plus'>
+                <AtNoticebar marquee icon='volume-plus'>
                     GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
                 </AtNoticebar>
 
