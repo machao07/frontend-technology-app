@@ -24,7 +24,7 @@ export default class Statistics extends Component<any, any> {
                 <AtTabs
                     current={this.state.current}
                     tabList={[
-                        { title: '标签页1' },
+                        { title: '前端框架' },
                         { title: '标签页2' }
                     ]}
                     onClick={this.handleClick.bind(this)}>
