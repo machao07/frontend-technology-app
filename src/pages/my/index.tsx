@@ -51,10 +51,10 @@ export default class My extends Component<any, States> {
         })
     }
 
-    handleClick(item: any) {
+    handleClick(item: listDTO) {
         switch (item.key) {
             case 'about':
-
+                Taro.navigateTo({ url: '/pages/about/index' })
                 break;
             case 'praise':
                 Taro.previewImage({
@@ -188,6 +188,10 @@ export default class My extends Component<any, States> {
                     onClick={this.handleClick.bind(this)}
                 />
 
+                <View className="copyright">
+                    <Text >Copyright © 2022 Created by Machao.</Text>
+                </View>
+
                 <TabBar currentIndex={2} />
                 <AtModal
                     className="modal"
@@ -198,9 +202,6 @@ export default class My extends Component<any, States> {
                     onConfirm={() => this.handleConfirm(listInfo as any)}
                     content={listInfo?.url}
                 />
-                <View className="copyright">
-                    <Text >Copyright © 2022 Created by Machao.</Text>
-                </View>
             </View>
         )
     }
