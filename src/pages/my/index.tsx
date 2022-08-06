@@ -12,6 +12,7 @@ interface listDTO {
     arrow: "right" | "up" | "down" | undefined
     title: string
     url?: string
+    thumb?: string
 }
 
 interface States {
@@ -99,13 +100,15 @@ export default class My extends Component<any, States> {
                 key: 'about',
                 isArrow: true,
                 arrow: 'right',
-                title: '关于我们'
+                title: '关于我们',
+                thumb: require('../../assets/about.png')
             },
             {
                 key: 'praise',
                 isArrow: true,
                 arrow: 'right',
-                title: '赞赏支持'
+                title: '赞赏支持',
+                thumb: require('../../assets/like.png')
             }
         ]
 
@@ -115,28 +118,32 @@ export default class My extends Component<any, States> {
                 isArrow: true,
                 arrow: 'right',
                 title: 'GitHub',
-                url: 'https://github.com/machao07'
+                url: 'https://github.com/machao07',
+                thumb: require('../../assets/github.png')
             },
             {
                 key: 'blog',
                 isArrow: true,
                 arrow: 'right',
                 title: '个人技术博客',
-                url: 'https://machao07.github.io'
+                url: 'https://machao07.github.io',
+                thumb: require('../../assets/person.png')
             },
             {
                 key: 'csdn',
                 isArrow: true,
                 arrow: 'right',
                 title: 'CSDN博客',
-                url: 'https://blog.csdn.net/weixin_43924228'
+                url: 'https://blog.csdn.net/weixin_43924228',
+                thumb: require('../../assets/csdn.png')
             },
             {
                 key: 'design',
                 isArrow: true,
                 arrow: 'right',
                 title: '设计作品集',
-                url: 'https://machao07.zcool.com.cn'
+                url: 'https://machao07.zcool.com.cn',
+                thumb: require('../../assets/zhanku.png')
             }
         ]
 
@@ -146,14 +153,16 @@ export default class My extends Component<any, States> {
                 isArrow: true,
                 arrow: 'right',
                 title: 'Taro API',
-                url: 'https://taro-docs.jd.com/taro/docs/apis/about/desc'
+                url: 'https://taro-docs.jd.com/taro/docs/apis/about/desc',
+                thumb: require('../../assets/taro.png')
             },
             {
                 key: 'taroUi',
                 isArrow: true,
                 arrow: 'right',
                 title: 'Taro UI',
-                url: 'https://taro-ui.jd.com/#/docs/quickstart'
+                url: 'https://taro-ui.jd.com/#/docs/quickstart',
+                thumb: require('../../assets/taro.png')
             },
         ]
         const { userInfo, listInfo, isOpened } = this.state
