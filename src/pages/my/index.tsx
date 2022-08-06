@@ -5,7 +5,6 @@ import TabBar from '../../components/tarBar'
 import List from '../../components/list'
 import { AtAvatar, AtModal } from 'taro-ui'
 import Taro from '@tarojs/taro'
-import Clipboard from 'clipboard'
 
 interface listDTO {
     key: string
@@ -146,13 +145,11 @@ export default class My extends Component<any, States> {
                 </View>
 
                 <List
-                    className="copy"
                     list={list}
                     onClick={this.handleClick.bind(this)}
                 />
 
                 <List
-                    className="copy"
                     list={linkList}
                     onClick={this.handleClick.bind(this)}
                 />

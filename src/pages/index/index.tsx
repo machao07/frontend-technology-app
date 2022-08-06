@@ -74,18 +74,18 @@ export default class Index extends Component<any, any> {
                         className='swiper'
                         indicatorColor='#aaa'
                         indicatorActiveColor='#fff'
+                        interval={3000}
                         circular
                         indicatorDots
-                        autoplay
-                    >
+                        autoplay>
                         <SwiperItem>
                             <View className='swiperItem'>
                                 <Image className="swiperImage" src={BannerImg} />
-                            </View>                            
-                        </SwiperItem>                      
+                            </View>
+                        </SwiperItem>
                     </Swiper>
-                    <AtNoticebar marquee speed={80} icon='volume-plus'>
-                        GitHub 正在更新整理前端技术栈面试知识点（持续更新中🏃）
+                    <AtNoticebar marquee speed={85} icon='volume-plus'>
+                        GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
                     </AtNoticebar>
                 </View>
 
