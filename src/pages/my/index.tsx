@@ -55,6 +55,7 @@ export default class My extends Component<any, States> {
         switch (item.key) {
             case 'about':
                 Taro.navigateTo({ url: '/pages/about/index' })
+                break;
             case 'contact':
                 Taro.navigateTo({ url: '/pages/contact/index' })
                 break;

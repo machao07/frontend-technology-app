@@ -102,7 +102,7 @@ export default class Index extends Component<any, States> {
                         </View>
                     </SwiperItem>
                 </Swiper>
-                <AtNoticebar marquee icon='volume-plus'>
+                <AtNoticebar icon='volume-plus'>
                     GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
                 </AtNoticebar>
 
