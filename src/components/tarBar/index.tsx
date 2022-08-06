@@ -27,7 +27,7 @@ export default class TabBar extends Component<Props, any> {
                     url = '/pages/index/index'
                     break;
                 case 1:
-                    url = '/pages/index/index'
+                    url = '/pages/statistics/index'
                     break;
                 case 2:
                     url = '/pages/my/index'
