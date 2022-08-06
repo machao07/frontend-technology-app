@@ -49,9 +49,9 @@ export default class Index extends Component<any, States> {
         const gridData = [
             {
                 id: 'js',
-                value: 'Js基础',
+                value: '前端基础',
                 image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                url: 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNzE3ODI3Ng==&action=getalbum&album_id=1418057341026811906#wechat_redirect'
+                url: 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNzE3ODI3Ng==&action=getalbum&album_id=2520042407569113092#wechat_redirect'
             },
             {
                 id: 'vue',

@@ -55,6 +55,8 @@ export default class My extends Component<any, States> {
         switch (item.key) {
             case 'about':
                 Taro.navigateTo({ url: '/pages/about/index' })
+            case 'contact':
+                Taro.navigateTo({ url: '/pages/contact/index' })
                 break;
             case 'praise':
                 Taro.previewImage({
@@ -63,17 +65,17 @@ export default class My extends Component<any, States> {
                     ]
                 })
                 break;
+            case 'taroUi':
+                Taro.navigateToMiniProgram({
+                    appId: 'wx1c6850423c0ff174',
+                })
+                break;
             case 'github':
             case 'blog':
             case 'csdn':
             case 'design':
             case 'taro':
                 this.setState({ listInfo: item, isOpened: true })
-                break;
-            case 'taroUi':
-                Taro.navigateToMiniProgram({
-                    appId: 'wx1c6850423c0ff174',
-                })
                 break;
             default:
                 break;
@@ -84,7 +86,7 @@ export default class My extends Component<any, States> {
         this.setState({ isOpened: false }, () => {
             Taro.setClipboardData({
                 data: listInfo.url ?? '',
-                success() {
+                success: (res) => {
                     Taro.atMessage({
                         message: '内容已复制',
                         type: 'success'
@@ -97,6 +99,13 @@ export default class My extends Component<any, States> {
     render() {
         const list: listDTO[] = [
             {
+                key: 'praise',
+                isArrow: true,
+                arrow: 'right',
+                title: '赞赏支持',
+                thumb: require('../../assets/like.png')
+            },
+            {
                 key: 'about',
                 isArrow: true,
                 arrow: 'right',
@@ -104,11 +113,19 @@ export default class My extends Component<any, States> {
                 thumb: require('../../assets/about.png')
             },
             {
-                key: 'praise',
+                key: 'contact',
                 isArrow: true,
                 arrow: 'right',
-                title: '赞赏支持',
-                thumb: require('../../assets/like.png')
+                title: '联系我们',
+                thumb: require('../../assets/contact.png')
+            },
+            {
+                key: 'taroUi',
+                isArrow: true,
+                arrow: 'right',
+                title: 'Taro UI',
+                url: 'https://taro-ui.jd.com/#/docs/quickstart',
+                thumb: require('../../assets/taro.png')
             }
         ]
 
@@ -147,24 +164,6 @@ export default class My extends Component<any, States> {
             }
         ]
 
-        const linkList: listDTO[] = [
-            {
-                key: 'taro',
-                isArrow: true,
-                arrow: 'right',
-                title: 'Taro API',
-                url: 'https://taro-docs.jd.com/taro/docs/apis/about/desc',
-                thumb: require('../../assets/taro.png')
-            },
-            {
-                key: 'taroUi',
-                isArrow: true,
-                arrow: 'right',
-                title: 'Taro UI',
-                url: 'https://taro-ui.jd.com/#/docs/quickstart',
-                thumb: require('../../assets/taro.png')
-            },
-        ]
         const { userInfo, listInfo, isOpened } = this.state
         return (
             <View className="my" >
@@ -180,11 +179,6 @@ export default class My extends Component<any, States> {
 
                 <List
                     list={mylinkList}
-                    onClick={this.handleClick.bind(this)}
-                />
-
-                <List
-                    list={linkList}
                     onClick={this.handleClick.bind(this)}
                 />
 
