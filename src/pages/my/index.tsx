@@ -30,13 +30,18 @@ export default class My extends Component<any, States> {
         }
     }
 
+    componentDidMount() {
+        const userInfo = Taro.getStorageSync('userInfo')
+        if (userInfo) {
+            this.setState({ userInfo })
+        }
+    }
+
     getUserProfile() {
         Taro.getUserProfile({
             desc: '获取用户昵称、头像',
             success: (res) => {
-                this.setState({
-                    userInfo: res.userInfo,
-                })
+                Taro.setStorageSync('userInfo', res.userInfo)
             },
             fail: () => {
                 console.error("您拒绝了请求");
@@ -55,7 +60,7 @@ export default class My extends Component<any, States> {
             case 'praise':
                 Taro.previewImage({
                     urls: [
-                        'https://github.com/machao07/image-store/blob/master/mini-app/praise.png?raw=true'
+                        'https://gd-hbimg.huaban.com/d1369f08470ce7fbf320686b7768f6f63a6d4604e998-jNF8aU'
                     ]
                 })
                 break;

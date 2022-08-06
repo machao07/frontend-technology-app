@@ -45,7 +45,7 @@ export default class TabBar extends Component<Props, any> {
                 <AtTabBar
                     tabList={[
                         { title: '首页', iconType: 'home' },
-                        { title: '进阶', iconType: 'list' },
+                        { title: '统计', iconType: 'analytics' },
                         { title: '我的', iconType: 'user' }
                     ]}
                     onClick={this.handleClick.bind(this)}
