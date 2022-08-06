@@ -70,10 +70,10 @@
   "lint-staged": {
     "**/*.{sass,scss}": "stylelint --syntax scss",
     "**/*.{js,jsx,tsx,ts,scss,md,json}": [
-      "prettier --write" 
+      "prettier --write"
     ]
   },
   "gitHooks": {
-    "pre-commit": "lint-staged --concurrent false" 
+    "pre-commit": "lint-staged --concurrent false"
   }
 }

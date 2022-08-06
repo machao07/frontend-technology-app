@@ -5,8 +5,7 @@ import TabBar from '../../components/tarBar'
 import List from '../../components/list'
 import { AtAvatar, AtModal } from 'taro-ui'
 import Taro from '@tarojs/taro'
-import BannerImg from '../../assets/miniapp_banner.png'
-
+import Clipboard from 'clipboard'
 
 interface listDTO {
     key: string
@@ -18,7 +17,7 @@ interface listDTO {
 
 interface States {
     userInfo: any
-    listInfo: listDTO | undefined
+    listInfo: listDTO | null
     isOpened: boolean
 }
 
@@ -27,7 +26,7 @@ export default class My extends Component<any, States> {
         super(props)
         this.state = {
             userInfo: {},
-            listInfo: undefined,
+            listInfo: null,
             isOpened: false
         }
     }
@@ -72,8 +71,18 @@ export default class My extends Component<any, States> {
         }
     }
 
-    handleConfirm() {
-        this.setState({ isOpened: false })
+    handleConfirm = (listInfo: listDTO) => {
+        this.setState({ isOpened: false }, () => {
+            Taro.setClipboardData({
+                data: listInfo.url ?? '',
+                success() {
+                    Taro.atMessage({
+                        message: '内容已复制',
+                        type: 'success'
+                    })
+                }
+            })
+        })
     }
 
     render() {
@@ -130,18 +139,20 @@ export default class My extends Component<any, States> {
         ]
         const { userInfo, listInfo, isOpened } = this.state
         return (
-            <View className="my">
+            <View className="my" >
                 <View className="avatar" onClick={this.getUserProfile.bind(this)}>
                     <AtAvatar size="large" circle image={userInfo.avatarUrl ?? 'https://jdc.jd.com/img/200'}></AtAvatar>
                     <Text className="name">{userInfo.nickName ?? '获取昵称'}</Text>
                 </View>
 
                 <List
+                    className="copy"
                     list={list}
                     onClick={this.handleClick.bind(this)}
                 />
 
                 <List
+                    className="copy"
                     list={linkList}
                     onClick={this.handleClick.bind(this)}
                 />
@@ -153,7 +164,7 @@ export default class My extends Component<any, States> {
                     title={listInfo?.title}
                     confirmText='一键复制'
                     closeOnClickOverlay={false}
-                    onConfirm={this.handleConfirm.bind(this)}
+                    onConfirm={() => this.handleConfirm(listInfo as any)}
                     content={listInfo?.url}
                 />
             </View>

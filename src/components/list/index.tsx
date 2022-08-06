@@ -11,6 +11,7 @@ type listDTO = {
 }
 
 interface Props {
+    className?: string
     list: listDTO[]
     onClick: (item: any) => any
 }
@@ -18,6 +19,7 @@ interface Props {
 export default class TabBar extends Component<Props, any> {
     constructor(props: Props) {
         super(props)
+        console.log(props)
     }
 
     render() {
@@ -26,6 +28,7 @@ export default class TabBar extends Component<Props, any> {
                 {
                     this.props.list.map((item) => {
                         return <AtListItem
+                            className={this.props.className}
                             key={item.key}
                             arrow={item.arrow}
                             title={item.title}
