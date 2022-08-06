@@ -1,11 +1,10 @@
 import { Component } from 'react'
-import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
+import { View, Swiper, SwiperItem, Image, OfficialAccount } from '@tarojs/components'
 import { AtNoticebar, AtGrid } from 'taro-ui'
 import BannerImg from '../../assets/miniapp_banner.png'
 import './index.scss'
 import TabBar from '../../components/tarBar'
 import Taro from '@tarojs/taro'
-
 export default class Index extends Component<any, any> {
     handleGridClick(item: any) {
         let hrefURL: string = '';
@@ -31,7 +30,7 @@ export default class Index extends Component<any, any> {
             default:
                 break;
         }
-        return Taro.navigateTo({ url: hrefURL })
+        return Taro.navigateTo({url: `/pages/webview/index?webUrl=${encodeURIComponent(hrefURL)}`})
     }
 
     render() {
@@ -69,25 +68,25 @@ export default class Index extends Component<any, any> {
         ]
         return (
             <View className="home">
-                <View>
-                    <Swiper
-                        className='swiper'
-                        indicatorColor='#aaa'
-                        indicatorActiveColor='#fff'
-                        interval={3000}
-                        circular
-                        indicatorDots
-                        autoplay>
-                        <SwiperItem>
-                            <View className='swiperItem'>
-                                <Image className="swiperImage" src={BannerImg} />
-                            </View>
-                        </SwiperItem>
-                    </Swiper>
-                    <AtNoticebar marquee speed={85} icon='volume-plus'>
-                        GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
-                    </AtNoticebar>
-                </View>
+                <Swiper
+                    className='swiper'
+                    indicatorColor='#aaa'
+                    indicatorActiveColor='#fff'
+                    interval={3000}
+                    circular
+                    indicatorDots
+                    autoplay>
+                    <SwiperItem>
+                        <View className='swiperItem'>
+                            <Image className="swiperImage" src={BannerImg} />
+                        </View>
+                    </SwiperItem>
+                </Swiper>
+                <AtNoticebar marquee speed={95} icon='volume-plus'>
+                    GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
+                </AtNoticebar>
+
+                <OfficialAccount />
 
                 <AtGrid className='grid' data={gridData} onClick={this.handleGridClick.bind(this)} />
                 <TabBar currentIndex={0} />
