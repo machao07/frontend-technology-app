@@ -1,5 +1,38 @@
-.statistics{
-    .main{
-        padding-top: 25px;
+.statistics {
+  .tabBox {
+    margin-bottom: 145px;
+    overflow-y: auto;
+
+    .main {
+      padding-top: 25px;
+
+      .eChartTitle {
+        padding-left: 5%;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 16px;
+          bottom: 0;
+          top: 0;
+          width: 8px;
+          height: 100%;
+          background: #6190E8
+        }
+      }
+
+      .canvas {
+        width: 100%;
+      }
+
+      .bar {
+        height: 500px
+      }
+
+      .pie {
+        height: 630px
+      }
     }
+  }
 }
