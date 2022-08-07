@@ -33,7 +33,7 @@ const Contact: FC = () => {
                         如有商业合作可以添加以下联系方式（微信号：machao1927），或扫描下方二维码。
                     </View>
 
-                    <AtButton  className='copyBtn' circle={true} type='primary' onClick={handleCopy}>一件复制微信号</AtButton>
+                    <AtButton className='copyBtn' circle={true} type='primary' onClick={handleCopy}>一键复制微信号</AtButton>
 
                     <Image
                         className='at-article__img'
@@ -41,10 +41,8 @@ const Contact: FC = () => {
                         mode='widthFix' />
                 </View>
             </View>
-
         </View>
     )
-
 }
 
 export default Contact

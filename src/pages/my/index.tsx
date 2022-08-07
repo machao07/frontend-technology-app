@@ -43,6 +43,7 @@ export default class My extends Component<any, States> {
             desc: '获取用户昵称、头像',
             success: (res) => {
                 Taro.setStorageSync('userInfo', res.userInfo)
+                this.setState({ userInfo: res.userInfo })
             },
             fail: () => {
                 console.error("您拒绝了请求");

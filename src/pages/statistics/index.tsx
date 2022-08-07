@@ -187,12 +187,12 @@ export default class Statistics extends Component<any, States> {
                     current={this.state.current}
                     tabList={[
                         { title: '前端框架' },
-                        { title: '生态圈' }
+                        { title: '前端生态圈' }
                     ]}
                     onClick={this.handleClick.bind(this)}>
                     <View className="main">
                         <AtTabsPane current={this.state.current} index={0}>
-                            <Text className="eChartTitle">2022年NPM下载量</Text>
+                            <Text className="eChartTitle">前端框架NPM下载量/月（2022）</Text>
                             <View className="canvas bar" style={{ margin: '30px 0' }}>
                                 <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec={ecLine}></ec-canvas>
                             </View>
@@ -203,7 +203,7 @@ export default class Statistics extends Component<any, States> {
                             </View>
                         </AtTabsPane>
                         <AtTabsPane current={this.state.current} index={1}>
-                            <Text className="eChartTitle">前端相关技术栈</Text>
+                            <Text className="eChartTitle">服务端框架NPM下载量/月（2022）</Text>
                             <View className="canvas bar" style={{ margin: '30px 0' }}>
                                 <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec={ecBar}></ec-canvas>
                             </View>
