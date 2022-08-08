@@ -185,7 +185,7 @@ export default class My extends Component<any, States> {
                 />
 
                 <View className="copyright">
-                    <Text >Copyright © 2022 Created by Machao.</Text>
+                    <Text className="text">Copyright © 2022 Created by Machao.</Text>
                 </View>
 
                 <TabBar currentIndex={2} />
