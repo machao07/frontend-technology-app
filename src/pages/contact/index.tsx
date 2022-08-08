@@ -1,7 +1,5 @@
 import { View, Image, Text } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import { FC } from 'react'
-import { AtButton } from 'taro-ui'
 import './index.scss'
 
 const Contact: FC = () => {
@@ -34,7 +32,7 @@ const Contact: FC = () => {
                     </View>
 
                     <View className='at-article__p'>
-                        如有兴趣的朋友也可以关注公众号，扫描或长按识别下方公众号二维码，查看前端相关技术栈文章。
+                        有兴趣的朋友也可以关注公众号，扫描或长按识别下方公众号二维码，查看前端相关技术栈文章。
                     </View>
                     {/* <AtButton className='copyBtn' circle={true} type='primary' onClick={handleCopy}>一键复制微信号</AtButton> */}
 
