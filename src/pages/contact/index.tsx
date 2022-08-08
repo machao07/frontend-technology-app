@@ -1,4 +1,4 @@
-import { View, Image } from '@tarojs/components'
+import { View, Image, Text } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { FC } from 'react'
 import { AtButton } from 'taro-ui'
@@ -6,17 +6,17 @@ import './index.scss'
 
 const Contact: FC = () => {
 
-    const handleCopy = () => {
-        Taro.setClipboardData({
-            data: 'machao1927',
-            success: (res) => {
-                Taro.atMessage({
-                    message: '内容已复制',
-                    type: 'success'
-                })
-            }
-        })
-    }
+    // const handleCopy = () => {
+    //     Taro.setClipboardData({
+    //         data: 'machao1927',
+    //         success: (res: any) => {
+    //             Taro.atMessage({
+    //                 message: '内容已复制',
+    //                 type: 'success'
+    //             })
+    //         }
+    //     })
+    // }
 
     return (
         <View className='at-article'>
@@ -30,14 +30,32 @@ const Contact: FC = () => {
                 <View className='at-article__section'>
                     <View className='at-article__h2'>白茶清欢无别事，我在等风也等你。</View>
                     <View className='at-article__p'>
-                        如有商业合作可以添加以下联系方式（微信号：machao1927），或扫描下方二维码。
+                        如有商业合作可以添加以下联系方式，扫描或长按识别下方微信二维码。
                     </View>
 
-                    <AtButton className='copyBtn' circle={true} type='primary' onClick={handleCopy}>一键复制微信号</AtButton>
+                    <View className='at-article__p'>
+                        如有兴趣的朋友也可以关注公众号，扫描或长按识别下方公众号二维码，查看前端相关技术栈文章。
+                    </View>
+                    {/* <AtButton className='copyBtn' circle={true} type='primary' onClick={handleCopy}>一键复制微信号</AtButton> */}
+
+                    <View className='at-article__p'>
+                        <Text className="title">微信号</Text>
+                    </View>
 
                     <Image
+                        showMenuByLongpress={true}
                         className='at-article__img'
                         src={require('../../assets/weChat.png')}
+                        mode='widthFix' />
+
+                    <View className='at-article__p'>
+                        <Text className="title">公众号</Text>
+                    </View>
+
+                    <Image
+                        showMenuByLongpress={true}
+                        className='at-article__img'
+                        src={require('../../assets/gzh.png')}
                         mode='widthFix' />
                 </View>
             </View>

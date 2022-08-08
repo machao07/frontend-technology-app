@@ -39,6 +39,7 @@ const AboutUs: FC = () => {
                     }
 
                     <Image
+                        showMenuByLongpress={true}
                         className='at-article__img'
                         src={require('../../assets/sky.png')}
                         mode='widthFix' />
