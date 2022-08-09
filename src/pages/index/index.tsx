@@ -120,13 +120,11 @@ export default class Index extends Component<any, States> {
                 <OfficialAccount />
 
                 <View className='checkIn'>
-                    <View className='checkText' onClick={this.handleCheckIn.bind(this)}>
+                    <View className='checkInBox' onClick={this.handleCheckIn.bind(this)}>
                         <Text>打 卡</Text>
                         <Text className='time'>{currentDate}</Text>
                     </View>
-                    <View className='steps'>
-                        <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
-                    </View>
+                    <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
                 </View>
 
                 <AtGrid className='grid' data={gridData} onClick={this.handleGridClick.bind(this)} />

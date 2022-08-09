@@ -25,11 +25,11 @@
     flex: 1;
     justify-content: space-around;
     align-items: center;
-    margin:0 0 20px 0;
+    margin: 0 0 20px 0;
     background: #fff;
-    padding: 40px 0;
+    padding: 44px 0;
 
-    .checkText {
+    .checkInBox {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -39,16 +39,22 @@
       width: 170px;
       height: 170px;
       border-radius: 50%;
-      .time{
-        font-size: 16px
+
+      .text {
+        font-size: 24px;
+
+      }
+
+      .time {
+        margin-top: 10px;
+        font-size: 18px
       }
     }
 
-    .steps {
-      .tip {
-        font-size: 20px;
-        color: #aaa
-      }
+    .tip {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #aaa
     }
 
   }
