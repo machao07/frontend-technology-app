@@ -19,6 +19,40 @@
     }
   }
 
+  .checkIn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    margin:0 0 20px 0;
+    background: #fff;
+    padding: 40px 0;
+
+    .checkText {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #6190E8;
+      color: #fff;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      .time{
+        font-size: 14px
+      }
+    }
+
+    .steps {
+      .tip {
+        font-size: 20px;
+        color: #aaa
+      }
+    }
+
+  }
+
   .grid {
     background: #fff;
   }

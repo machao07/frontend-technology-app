@@ -3,19 +3,6 @@ import { FC } from 'react'
 import './index.scss'
 
 const Contact: FC = () => {
-
-    // const handleCopy = () => {
-    //     Taro.setClipboardData({
-    //         data: 'machao1927',
-    //         success: (res: any) => {
-    //             Taro.atMessage({
-    //                 message: '内容已复制',
-    //                 type: 'success'
-    //             })
-    //         }
-    //     })
-    // }
-
     return (
         <View className='at-article'>
             <View className='at-article__h1'>

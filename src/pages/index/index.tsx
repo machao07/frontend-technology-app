@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { View, Swiper, SwiperItem, Image, OfficialAccount } from '@tarojs/components'
+import { View, Swiper, SwiperItem, Image, OfficialAccount, Text } from '@tarojs/components'
 import { AtNoticebar, AtGrid, AtModal } from 'taro-ui'
 import BannerImg from '../../assets/miniapp_banner.png'
 import './index.scss'
@@ -15,16 +15,23 @@ type itemDTO = {
 interface States {
     isOpened: boolean
     currentItem: itemDTO | null
+    date: Date
 }
 export default class Index extends Component<any, States> {
     constructor(props: any) {
         super(props)
         this.state = {
             isOpened: false,
-            currentItem: null
+            currentItem: null,
+            date: new Date()
         }
     }
 
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({ date: new Date() })
+        })
+    }
     handleGridClick(item: itemDTO) {
         this.setState({ currentItem: item, isOpened: true });
         // Taro.navigateTo({ url: `/pages/webview/index?webUrl=${encodeURIComponent(item.url)}` })
@@ -43,6 +50,10 @@ export default class Index extends Component<any, States> {
                 }
             })
         })
+    }
+
+    handleCheckIn() {
+
     }
 
     render() {
@@ -84,8 +95,8 @@ export default class Index extends Component<any, States> {
                 url: 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNzE3ODI3Ng==&action=getalbum&album_id=1562397975996399618#wechat_redirect'
             }
         ]
-        const { isOpened, currentItem } = this.state
-
+        const { isOpened, currentItem, date } = this.state
+        const currentDate = `${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds()}`
         return (
             <View className="home">
                 <Swiper
@@ -107,6 +118,16 @@ export default class Index extends Component<any, States> {
                 </AtNoticebar>
 
                 <OfficialAccount />
+
+                <View className='checkIn'>
+                    <View className='checkText' onClick={this.handleCheckIn.bind(this)}>
+                        <Text>打卡</Text>
+                        <Text className='time'>{currentDate}</Text>
+                    </View>
+                    <View className='steps'>
+                        <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
+                    </View>
+                </View>
 
                 <AtGrid className='grid' data={gridData} onClick={this.handleGridClick.bind(this)} />
                 <TabBar currentIndex={0} />
