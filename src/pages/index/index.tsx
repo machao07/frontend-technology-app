@@ -121,7 +121,7 @@ export default class Index extends Component<any, States> {
 
                 <View className='checkIn'>
                     <View className='checkText' onClick={this.handleCheckIn.bind(this)}>
-                        <Text>打卡</Text>
+                        <Text>打 卡</Text>
                         <Text className='time'>{currentDate}</Text>
                     </View>
                     <View className='steps'>
