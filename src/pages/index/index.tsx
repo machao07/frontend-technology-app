@@ -52,10 +52,6 @@ export default class Index extends Component<any, States> {
         })
     }
 
-    handleCheckIn() {
-
-    }
-
     render() {
         const gridData = [
             {
@@ -120,7 +116,7 @@ export default class Index extends Component<any, States> {
                 <OfficialAccount />
 
                 <View className='checkIn'>
-                    <View className='checkInBox' onClick={this.handleCheckIn.bind(this)}>
+                    <View className='checkInBox'>
                         <Text>打 卡</Text>
                         <Text className='time'>{currentDate}</Text>
                     </View>
