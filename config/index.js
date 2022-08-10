@@ -14,11 +14,22 @@ const config = {
     },
     copy: {
         patterns: [
+            {
+                from: 'src/wemark',
+                to: 'dist/wemark'
+            }
         ],
         options: {
         }
     },
     framework: 'react',
+    weapp: {
+        compile: {
+            exclude: [
+                'src/wemark/remarkable.js',
+            ]
+        }
+    },
     mini: {
         postcss: {
             pxtransform: {

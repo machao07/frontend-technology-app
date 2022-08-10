@@ -1,5 +1,5 @@
 export default {
-  navigationBarTitleText: '前端进阶技术栈',
+  navigationBarTitleText: 'vue文章',
     usingComponents: {
         "wemark": '../../wemark/wemark'
     }

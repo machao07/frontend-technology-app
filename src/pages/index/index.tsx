@@ -32,8 +32,13 @@ export default class Index extends Component<any, States> {
             this.setState({ date: new Date() })
         })
     }
+
     handleGridClick(item: itemDTO) {
-        this.setState({ currentItem: item, isOpened: true });
+        if (item.id === 'vue') {
+            Taro.navigateTo({ url: '/pages/article/index' })
+        } else {
+            this.setState({ currentItem: item, isOpened: true });
+        }
         // Taro.navigateTo({ url: `/pages/webview/index?webUrl=${encodeURIComponent(item.url)}` })
     }
 
