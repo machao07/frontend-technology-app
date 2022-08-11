@@ -3,12 +3,13 @@ import { AtList, AtListItem } from 'taro-ui'
 import './index.scss'
 
 type listDTO = {
-    key: string,
+    key: string
     isArrow: boolean
     arrow: "right" | "up" | "down" | undefined
     title: string
     url?: string
     thumb?: string
+    top?: number
 }
 
 interface Props {
@@ -27,6 +28,7 @@ export default class TabBar extends Component<Props, any> {
                 {
                     this.props.list.map((item) => {
                         return <AtListItem
+                            className={item.top ? 'itemMr' : 'item'}
                             key={item.key}
                             arrow={item.arrow}
                             title={item.title}
