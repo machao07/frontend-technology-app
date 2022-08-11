@@ -34,11 +34,12 @@ export default class Index extends Component<any, States> {
     }
 
     handleGridClick(item: itemDTO) {
-        if (item.id === 'vue') {
-            Taro.navigateTo({ url: '/pages/article/index' })
-        } else {
-            this.setState({ currentItem: item, isOpened: true });
-        }
+        Taro.navigateTo({url: `/pages/article/index?type=${item.id}`})
+        // if (item.id === 'vue') {
+        //     Taro.navigateTo({ url: '/pages/article/index' })
+        // } else {
+        //     this.setState({ currentItem: item, isOpened: true });
+        // }
         // Taro.navigateTo({ url: `/pages/webview/index?webUrl=${encodeURIComponent(item.url)}` })
     }
 
