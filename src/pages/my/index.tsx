@@ -13,6 +13,7 @@ interface listDTO {
     title: string
     url?: string
     thumb?: string
+    top?: number
 }
 
 interface States {
@@ -88,7 +89,7 @@ export default class My extends Component<any, States> {
         this.setState({ isOpened: false }, () => {
             Taro.setClipboardData({
                 data: listInfo.url ?? '',
-                success: (res) => {
+                success: () => {
                     Taro.atMessage({
                         message: '内容已复制',
                         type: 'success'
@@ -128,11 +129,9 @@ export default class My extends Component<any, States> {
                 title: 'Taro UI',
                 url: 'https://taro-ui.jd.com/#/docs/quickstart',
                 thumb: require('../../assets/taro.png')
-            }
-        ]
-
-        const mylinkList: listDTO[] = [
+            },
             {
+                top: 20,
                 key: 'github',
                 isArrow: true,
                 arrow: 'right',
@@ -176,11 +175,6 @@ export default class My extends Component<any, States> {
 
                 <List
                     list={list}
-                    onClick={this.handleClick.bind(this)}
-                />
-
-                <List
-                    list={mylinkList}
                     onClick={this.handleClick.bind(this)}
                 />
 

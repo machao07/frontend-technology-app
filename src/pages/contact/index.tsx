@@ -2,7 +2,23 @@ import { View, Image, Text } from '@tarojs/components'
 import { FC } from 'react'
 import './index.scss'
 
+type imgsDTO = {
+    name: string
+    src: string
+}
+
 const Contact: FC = () => {
+    const imgList: imgsDTO[] = [
+        {
+            name: '微信号',
+            src: require('../../assets/weChat.png')
+        },
+        {
+            name: '公众号',
+            src: require('../../assets/gzh.png')
+        }
+    ]
+
     return (
         <View className='at-article'>
             <View className='at-article__h1'>
@@ -21,27 +37,26 @@ const Contact: FC = () => {
                     <View className='at-article__p'>
                         有兴趣的朋友也可以关注公众号，扫描或长按识别下方公众号二维码，查看前端相关技术栈文章。
                     </View>
+
                     {/* <AtButton className='copyBtn' circle={true} type='primary' onClick={handleCopy}>一键复制微信号</AtButton> */}
 
-                    <View className='at-article__p'>
-                        <Text className="title">微信号</Text>
-                    </View>
+                    {
+                        imgList.map((item: imgsDTO) => {
+                            return (
+                                <>
+                                    <View className='at-article__p'>
+                                        <Text className="title">{item.name}</Text>
+                                    </View>
 
-                    <Image
-                        showMenuByLongpress={true}
-                        className='at-article__img'
-                        src={require('../../assets/weChat.png')}
-                        mode='widthFix' />
-
-                    <View className='at-article__p'>
-                        <Text className="title">公众号</Text>
-                    </View>
-
-                    <Image
-                        showMenuByLongpress={true}
-                        className='at-article__img'
-                        src={require('../../assets/gzh.png')}
-                        mode='widthFix' />
+                                    <Image
+                                        showMenuByLongpress={true}
+                                        className='at-article__img'
+                                        src={item.src}
+                                        mode='widthFix' />
+                                </>
+                            )
+                        })
+                    }
                 </View>
             </View>
         </View>
