@@ -11,11 +11,11 @@ const Contact: FC = () => {
     const imgList: imgsDTO[] = [
         {
             name: '微信号',
-            src: require('../../assets/weChat.png')
+            src: require('../../assets/weChat.jpg')
         },
         {
             name: '公众号',
-            src: require('../../assets/gzh.png')
+            src: require('../../assets/gzh.jpg')
         }
     ]
 
