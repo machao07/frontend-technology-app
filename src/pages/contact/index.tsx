@@ -30,7 +30,7 @@ const Contact: FC = () => {
                     <Image
                         showMenuByLongpress={true}
                         className='at-article__img'
-                        src={require('../../assets/weChat.png')}
+                        src={require('../../assets/weChat.jpg')}
                         mode='widthFix' />
 
                     <View className='at-article__p'>
@@ -40,7 +40,7 @@ const Contact: FC = () => {
                     <Image
                         showMenuByLongpress={true}
                         className='at-article__img'
-                        src={require('../../assets/gzh.png')}
+                        src={require('../../assets/gzh.jpg')}
                         mode='widthFix' />
                 </View>
             </View>

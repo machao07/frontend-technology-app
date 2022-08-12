@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { View, Swiper, SwiperItem, Image, OfficialAccount, Text } from '@tarojs/components'
 import { AtNoticebar, AtGrid, AtModal } from 'taro-ui'
-import BannerImg from '../../assets/miniapp_banner.png'
+import BannerImg from '../../assets/miniapp_banner.jpg'
 import './index.scss'
 import TabBar from '../../components/tarBar'
 import Taro from '@tarojs/taro'
