@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react'
 import { AtCard } from 'taro-ui'
 import { getCurrentInstance } from '@tarojs/taro'
-import { vueArticle } from './directory/vue'
+import { vueArticle, reactArticle } from './directory'
 import { View } from '@tarojs/components'
-import './index.scss'
 import Taro from '@tarojs/taro'
+import './index.scss'
 
 type itemDTO = {
     name: string,
@@ -18,11 +18,11 @@ const ArticleList: FC = () => {
 
     useEffect(() => {
         switch (type) {
-            case 'js':
-
-                break;
             case 'vue':
                 setDataList(vueArticle)
+                break;            
+            case 'react':
+                setDataList(reactArticle)
                 break;
             default:
                 break;

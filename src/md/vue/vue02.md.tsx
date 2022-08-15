@@ -1,177 +1,166 @@
-// Vue组件通信汇总
+// vue项目添加TS
 const vue02 = `
-### 一、父子组件通信
+### 一、已有项目
+#### 1、安装依赖
 
-- 事件机制(父=>子 \`props\`，子=>父 \`$on、$emit\`)
-- 获取父子组件实例 \`$parent\`、\`$children\`
-- \`ref\` 获取实例的方式调用组件的属性或者方法
-- provide、inject (不推荐使用，组件库时很常用)
+\`npm i vue-class-component vue-property-decorator —S\`
 
-#### 1、父组件传参到子组件 props
+\`npm i ts-loader typescript tslint tslint-loader tslint-config-standard -D\`
 
-\`\`\`html
-<!--父组件-->
-<Btn :title="'修改'" :currentId="id"  :layouts="layouts"/>
+- **vue-class-component：**扩展vue支持typescript，将原有的vue语法通过声明的方式来支持ts
+- **vue-property-decorator：**基于vue-class-component扩展更多装饰器
+- **ts-loader：**让webpack能够识别ts文件
+- **tslint-loader：**tslint用来约束文件编码
+- **tslint-config-standard：**tslint 配置 standard风格的约束
 
-<!--子组件-->
-<button>{{title}}</button>
-<p>{{currentId}}</p>
-<p>{{layouts.sign}}</p>
-\`\`\`
-
+#### 2、初始化tsconfig 
+> tsc --init 
 
 \`\`\`js
-// 对象的方式（1）
-props: {
-    title: String,
-    currentId: String,
-    layouts: {
-        spans: Number,
-        sign: String,
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "ESNext",
+        "strict": true,
+        "strictNullChecks": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true  // 启用装饰器
     }
 }
-
-// 对象的方式（2） 类型、默认值
-props: { 
-    title: { 
-        type: String, 
-        default:'按钮' 
-    },
-    currentId: { 
-        type: String, 
-        default: '0' 
-    }
-}
-
-// 数组的方式
-props:['title', 'currentId', 'layouts']
 \`\`\`
 
-> 传对象时 也可以用watch监听对象的属性变化
-
+#### 3、vue.config.js
 \`\`\`js
-// 父组件
-<activies-create :formData.sync="createForm"/>
-
-// 初始声明
-createForm:{
-    sellerId: 0,
-    activityid: 0
-}
-
-// 子组件
-props:{
-    formData: Object
+// webpack 配置
+configureWebpack: {
+    resolve: { extensions: [".ts", ".tsx", ".js", ".json"] },
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                enforce: 'pre',
+                loader: 'tslint-loader'
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                }
+            }
+        ]
+    }
 },
-watch: {
-    formData: {
-        immediate: true,
-        handler (val) {
-            this.sellerId = val.sellerId;
-            this.activityid = val.activityid;
-            this.getList();
-        },
-        deep: true
+\`\`\`
+
+#### 4、新建ts解析.vue
+
+> shims-tsx.d.ts
+\`\`\`js
+import Vue, { VNode } from 'vue';
+
+declare global {
+    namespace JSX {
+        // tslint:disable no-empty-interface
+        interface Element extends VNode {}
+        // tslint:disable no-empty-interface
+        interface ElementClass extends Vue {}
+        interface IntrinsicElements {
+            [elem: string]: any;
+        }
     }
 }
 \`\`\`
 
-#### 2、父组件操作子组件 this.$refs
-
-> - **this.$refs** 指的是父组件中所有添加 **ref**属性的元素或组件
-
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/39411010/172776993-1a9735c4-be3a-4474-90e5-f0c495b966c6.png">
-
-\`\`\`html
-<!--父组件-->
-<el-form ref="ruleForm"></el-form>
-<Upload ref='upload'></Upload>
-\`\`\`
-
+> shims-vue.d.ts
 \`\`\`js
-// 父组件
-console.log(this.$refs); // ruleFrom、upload
-
-this.$refs.upload.imageUrl
-this.$refs.upload.beforeAvatarUpload();
-\`\`\`
-
-#### 3、子组件操作父组件 $emit
-
-> 传一个值时：**_valueChange**
-> 传多个值时：**_confirmEvent(arguments)**
-
-\`\`\`html
-<!--父组件-->
-<calculation  @confirmEvent="_confirmEvent(arguments)" @valChange="_valueChange"/>
-\`\`\`
-
-\`\`\`js
-// 父组件获取 单个值
-_valueChange(res) {
-    this.payMoney = res;
+declare module '*.vue' {
+    import Vue from 'vue';
+    export default Vue;
 }
 
-// 父组件获取 多个值
-_confirmEvent(res){
-    this.payMoney = res[0];
-    this.payTool = res[1];
-}
 \`\`\`
 
+#### 5、添加tslint.json
 \`\`\`js
-// 子组件  传单个值
-this.$emit('valChange',this.money)
-
-// 子组件  传多个值:（逗号分隔）
-handleBuy(){
-    let S = this.money;
-    //未输入
-    if (!S.length){
-        return false;
+    {
+        "extends": "tslint-config-standard",
+        "globals": {
+            "require": true
+        }
     }
-    //保留两位
-    S = Number(S).toFixed(2);
-    this.$emit('confirmEvent', S, this.payTool)
-}
 \`\`\`
 
-### 二、兄弟组件通信
+### 二、新项目
 
-- Vuex
-- `eventBus` 这种方法**通过一个空的 Vue实例作为中央事件总线（事件中心）**，用它来`触发事件`和`监听事件`，从而实现任何组件间的通信，包括`父子、隔代、兄弟组件`
+> yarn create vue
 
-挂载到原型
+![](https://user-images.githubusercontent.com/39411010/154649007-6af3795f-4d23-4f40-aa43-706f67a92912.png)
+
+##### 项目结构
 \`\`\`js
-Vue.prototype.$bus = new Vue()
+vue-ts
+├─.browserslistrc
+├─babel.config.js
+├─package.json
+├─tsconfig.json
+├─tslint.json
+├─yarn.lock
+├─src
+|  ├─App.vue
+|  ├─main.ts
+|  ├─shims-tsx.d.ts
+|  ├─shims-vue.d.ts
+|  ├─views
+|  |   ├─About.vue
+|  |   └Home.vue
+|  ├─store
+|  |   └index.ts
+|  ├─router
+|  |   └index.ts
+|  ├─components
+|  |     └HelloWorld.vue
+|  ├─assets
+|  |   └logo.png
+├─public
+|   ├─favicon.ico
+|   └index.html
 \`\`\`
 
-> 新建bus.js 引入使用
-\`\`\`js
-import Vue from 'vue';
+#### 写法差异及注意点
 
-// 使用 Event Bus
-const bus = new Vue();
+> - \`@Component\`  没有子组件也需要写出
+> - 最后都需要导出 \`export default class Test extends Vue {}\`
 
-export default bus;
+\`\`\`html
+<template>
+    <div>
+
+    </div>
+</template>
 \`\`\`
 
-> 需要的文件中引入bus.js 文件使用
 \`\`\`js
-import bus from '../bus';
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import vHead from './header.vue';
 
-bus.$on('collapse', msg => {
-  this.collapse = msg;
+@Component({
+    components: {
+        vHead,
+    },
 })
 
-bus.$emit('collapse',this.collapse);
+export default class Test extends Vue {
+    private obj: any ={
+        name: 'caho',
+        age: 18,
+        sex: 1
+    }
+};
+</script>
 \`\`\`
-
-### 三、跨级组件通信
-
-- Vuex
-- $attrs、$listeners
-- Provide、inject
 `
-
 export default vue02
