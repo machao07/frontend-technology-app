@@ -1,4 +1,4 @@
-import vue01 from '../../../md/vue/vueAddts.md'
+import vue01 from '../../../md/vue/vue01.md'
 import vue02 from '../../../md/vue/vue02.md'
 
 export const vueArticle = [
