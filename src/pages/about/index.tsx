@@ -27,8 +27,8 @@ const AboutUs: FC = () => {
                         className='timeLine'
                         items={[
                             { title: '技术栈、项目经验、生活分享，商业项目合作' },
-                            { title: '涉及领域：公众号、小程序、运营系统、官方网站等' },
-                            { title: '涉猎技术栈：Vue、React、Taro、Ele、AntD、Vant等' },
+                            { title: '涉及领域：微信公众号、微信小程序、运营管理系统、官方网站等' },
+                            { title: '涉猎技术栈：Vue、React、Taro、ES6+、TS、Element、AntD、Vant、ECharts等' },
                         ]}
                     />
 

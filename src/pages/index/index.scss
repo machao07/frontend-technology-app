@@ -30,6 +30,7 @@
     padding: 44px 0;
 
     .checkInBox {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,9 +41,40 @@
       height: 170px;
       border-radius: 50%;
 
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 170px;
+        height: 170px;
+        background: #6190E8;
+        border-radius: 50%;
+        opacity: .4;
+        animation: bgScale 3s linear 1s infinite;
+        -webkit-animation: bgScale 3s linear 1s infinite;
+      }
+
+      @keyframes bgScale {
+        0% {
+          transform: scale(1)
+        }
+
+        25% {
+          transform: scale(1.2)
+        }
+
+        50% {
+          transform: scale(1.1)
+        }
+
+        100% {
+          transform: scale(1)
+        }
+      }
+
       .text {
         font-size: 24px;
-
       }
 
       .time {
@@ -56,7 +88,6 @@
       font-size: 22px;
       color: #aaa
     }
-
   }
 
   .grid {
