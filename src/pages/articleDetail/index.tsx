@@ -17,7 +17,7 @@ const Article: FC = () => {
 
     return (
         <View className='article'>
-            <wemark md={markdown} link highlight={true} type='wemark' />
+            <wemark md={markdown} link={true} highlight={true} type='wemark' />
         </View>
     )
 }

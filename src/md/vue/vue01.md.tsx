@@ -19,7 +19,6 @@ const vue01 = `
 <p>{{layouts.sign}}</p>
 \`\`\`
 
-
 \`\`\`js
 // 对象的方式（1）
 props: {

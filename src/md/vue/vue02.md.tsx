@@ -30,6 +30,7 @@ const vue02 = `
 \`\`\`
 
 #### 3、vue.config.js
+
 \`\`\`js
 // webpack 配置
 configureWebpack: {

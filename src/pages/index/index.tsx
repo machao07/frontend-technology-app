@@ -44,10 +44,11 @@ export default class Index extends Component<any, States> {
             case 'frontEnd':
             case 'myStory':
                 this.setState({ currentItem: item, isOpened: true });
+                break;
             default:
                 break;
         }
-        Taro.navigateTo({ url: `/pages/article/index?type=${item.id}` })
+        // Taro.navigateTo({ url: `/pages/article/index?type=${item.id}` })
         // Taro.navigateTo({ url: `/pages/webview/index?webUrl=${encodeURIComponent(item.url)}` })
     }
 
