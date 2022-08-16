@@ -1,6 +1,6 @@
 // Vue中this.$router.push传参方式
 const vue03 = `
-​### 1、params传参：
+### 1、params传参：
 \`\`\`js
 var id = this.tableDate[index].id;
 
