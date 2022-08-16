@@ -14,7 +14,7 @@ type itemDTO = {
 
 const ArticleList: FC = () => {
     const { type } = getCurrentInstance().router?.params ?? {}
-    const [dataList, setDataList] = useState<any>([])
+    const [dataList, setDataList] = useState<itemDTO[]>([])
 
     useEffect(() => {
         switch (type) {

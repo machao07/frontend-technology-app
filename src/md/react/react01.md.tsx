@@ -1,5 +1,5 @@
 // react项目页面跳转/传值
-const vue01 = `
+const react01 = `
 ## 一、跳转
 ### 1、history.push 跳转
 
@@ -82,4 +82,4 @@ componentDidMount(){
 
 `
 
-export default vue01
+export default react01
