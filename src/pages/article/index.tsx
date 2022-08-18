@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import { AtButton, AtCard, AtFab } from 'taro-ui'
+import { AtButton, AtCard } from 'taro-ui'
 import { getCurrentInstance } from '@tarojs/taro'
 import { vueArticle, reactArticle } from './directory'
 import { View, Text } from '@tarojs/components'

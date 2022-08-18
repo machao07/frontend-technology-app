@@ -157,7 +157,7 @@ class Child extends React.Component {
 }
 \`\`\`
 
-## 3、跨组件通信
+### 3、跨组件通信
 
 - 创建一个 context 对象
 \`\`\`js

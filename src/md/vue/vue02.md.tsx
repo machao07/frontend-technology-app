@@ -1,7 +1,7 @@
 // vue项目添加TS
 const vue02 = `
-### 一、已有项目
-#### 1、安装依赖
+## 一、已有项目
+### 1、安装依赖
 
 \`npm i vue-class-component vue-property-decorator —S\`
 
@@ -13,7 +13,7 @@ const vue02 = `
 - **tslint-loader：**tslint用来约束文件编码
 - **tslint-config-standard：**tslint 配置 standard风格的约束
 
-#### 2、初始化tsconfig 
+### 2、初始化tsconfig 
 > tsc --init 
 
 \`\`\`js
@@ -29,7 +29,7 @@ const vue02 = `
 }
 \`\`\`
 
-#### 3、vue.config.js
+### 3、vue.config.js
 
 \`\`\`js
 // webpack 配置
@@ -56,7 +56,7 @@ configureWebpack: {
 },
 \`\`\`
 
-#### 4、新建ts解析.vue
+### 4、新建ts解析.vue
 
 > shims-tsx.d.ts
 \`\`\`js
@@ -84,7 +84,7 @@ declare module '*.vue' {
 
 \`\`\`
 
-#### 5、添加tslint.json
+### 5、添加tslint.json
 \`\`\`js
     {
         "extends": "tslint-config-standard",
@@ -94,7 +94,7 @@ declare module '*.vue' {
     }
 \`\`\`
 
-### 二、新项目
+## 二、新项目
 
 > yarn create vue
 

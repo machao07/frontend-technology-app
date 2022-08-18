@@ -1,15 +1,15 @@
 // vue.config.js 配置与项目优化
 const vue04 = `
-#### 1、publicPath
+### 1、publicPath
 
 - 默认 \`'/'\` 服务器根路径
 - 也可设置为 \`('')\` 或 \`('./')\` 变为相对路径
 - 若部署至子路径，则需要配置 \`'/xxx/'\`
 
-#### 2、outputDir
+### 2、outputDir
 - 默认 dist
 
-#### 3、assetsDir
+### 3、assetsDir
 
 - 相对于outputDir的静态资源(js、css、img、fonts)目录
 
@@ -24,12 +24,12 @@ dist
   ├─js
 \`\`\`
 
-#### 4、修改webpack配置
+### 4、修改webpack配置
 
 - \`configureWebpack\` 通过 \`操作对象\`的形式
 - \`chainWebpack\` 通过 \`链式编程\`的形式
 
-##### \`configureWebpack\`
+#### \`configureWebpack\`
 
 \`\`\`js
 configureWebpack: {
@@ -58,7 +58,7 @@ configureWebpack: config => {
 }
 \`\`\`
 
-##### \`chainWebpack 链式操作\`
+#### \`chainWebpack 链式操作\`
 
 \`\`\`js
 module.exports = {
@@ -93,7 +93,7 @@ module.exports = {
 }
 \`\`\`
 
-#### 5、项目优化
+### 5、项目优化
 > index.html添加CDN资源
 
 \`\`\`html
@@ -160,7 +160,7 @@ module.exports = {
 }
 \`\`\`
 
-#### 6、项目体积优化对比
+### 6、项目体积优化对比
 > 打包优化前
 
 ![](https://user-images.githubusercontent.com/39411010/170208616-4de35c09-4ca0-41b6-83f8-8fd678b594ed.png)
@@ -169,7 +169,7 @@ module.exports = {
 
 ![](https://user-images.githubusercontent.com/39411010/170211130-2a23666b-a987-43ea-9594-72a5216e2b47.png)
 
-#### 官方参考文档
+### 官方参考文档
 
 **https://cli.vuejs.org/zh/config**
 

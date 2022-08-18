@@ -1,13 +1,13 @@
 // Vue组件通信汇总
 const vue01 = `
-### 一、父子组件通信
+## 一、父子组件通信
 
 - 事件机制(父=>子 \`props\`，子=>父 \`$on、$emit\`)
 - 获取父子组件实例 \`$parent\`、\`$children\`
 - \`ref\` 获取实例的方式调用组件的属性或者方法
 - provide、inject (不推荐使用，组件库时很常用)
 
-#### 1、父组件传参到子组件 props
+### 1、父组件传参到子组件 props
 
 \`\`\`html
 <!--父组件-->
@@ -75,7 +75,7 @@ watch: {
 }
 \`\`\`
 
-#### 2、父组件操作子组件 this.$refs
+### 2、父组件操作子组件 this.$refs
 
 > - \`this.$refs\` 指的是父组件中所有添加 \`ref\`属性的元素或组件
 
@@ -95,7 +95,7 @@ this.$refs.upload.imageUrl
 this.$refs.upload.beforeAvatarUpload();
 \`\`\`
 
-#### 3、子组件操作父组件 $emit
+### 3、子组件操作父组件 $emit
 
 > 传一个值时：\`_valueChange\`
 > 传多个值时：\`_confirmEvent(arguments)\`
@@ -135,7 +135,7 @@ handleBuy(){
 }
 \`\`\`
 
-### 二、兄弟组件通信
+## 二、兄弟组件通信
 
 - Vuex
 - \`eventBus\` 这种方法**通过一个空的 Vue实例作为中央事件总线（事件中心）**，用它来\`触发事件\`和\`监听事件\`，从而实现任何组件间的通信，包括\`父子、隔代、兄弟组件\`
@@ -166,7 +166,7 @@ bus.$on('collapse', msg => {
 bus.$emit('collapse',this.collapse);
 \`\`\`
 
-### 三、跨级组件通信
+## 三、跨级组件通信
 
 - Vuex
 - $attrs、$listeners
