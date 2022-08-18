@@ -29,14 +29,14 @@
 	margin-top: 1em;
     /*  */
 	margin-bottom: 1em;
-    padding-left: 15px;
+    padding-left: 18px;
 }
 
 /*  */
 .wemark_block_h3::before{
     content: "";
     position: relative;
-    right: 15px;
+    right: 18px;
     border-left: 10px solid #916dd5;
 }
 /*  */
