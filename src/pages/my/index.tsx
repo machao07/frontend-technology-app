@@ -39,6 +39,10 @@ export default class My extends Component<any, States> {
         }
     }
 
+    componentDidHide() {
+        Taro.removeStorageSync('userInfo')
+    }
+
     getUserProfile() {
         Taro.getUserProfile({
             desc: '获取用户昵称、头像',

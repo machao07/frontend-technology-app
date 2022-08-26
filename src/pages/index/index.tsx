@@ -1,6 +1,6 @@
 import { Component } from 'react'
-import { View, Swiper, SwiperItem, Image, OfficialAccount, Text } from '@tarojs/components'
-import { AtNoticebar, AtGrid, AtModal } from 'taro-ui'
+import { View, Swiper, SwiperItem, Image, OfficialAccount, Text, Button } from '@tarojs/components'
+import { AtNoticebar, AtGrid, AtModal, AtIcon } from 'taro-ui'
 import BannerImg from '../../assets/miniapp_banner.jpg'
 import './index.scss'
 import TabBar from '../../components/tarBar'
@@ -16,6 +16,7 @@ interface States {
     isOpened: boolean
     currentItem: itemDTO | null
     date: Date
+    isChecked: boolean
 }
 export default class Index extends Component<any, States> {
     constructor(props: any) {
@@ -23,7 +24,8 @@ export default class Index extends Component<any, States> {
         this.state = {
             isOpened: false,
             currentItem: null,
-            date: new Date()
+            date: new Date(),
+            isChecked: false
         }
     }
 
@@ -31,6 +33,12 @@ export default class Index extends Component<any, States> {
         setInterval(() => {
             this.setState({ date: new Date() })
         })
+        const isChecked = Taro.getStorageSync('isChecked')
+        this.setState({ isChecked })
+    }
+
+    componentDidHide() {
+        Taro.removeStorageSync('isChecked')
     }
 
     handleGridClick(item: itemDTO) {
@@ -65,6 +73,44 @@ export default class Index extends Component<any, States> {
                 }
             })
         })
+    }
+
+    handleCheckIn = () => {
+        Taro.requestSubscribeMessage({
+            tmplIds: ['PmKMv4oYopX_9ko9Td6R7FeDkkCpjs2hNR6KX6ELAvc'],
+            success: () => {
+                Taro.setStorageSync('isChecked', true)
+                this.setState({ isChecked: true })
+            },
+            fail: () => {
+                Taro.navigateTo({ url: '/pages/article/index?type=vue' })
+                Taro.setStorageSync('isChecked', true)
+                this.setState({ isChecked: true })
+            }
+        })
+    }
+
+    buildCheckIn = (): React.ReactNode => {
+        const { date } = this.state
+        const currentDate = `${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds()}`
+        return (
+            <View className='checkInBox' >
+                <Text>打 卡</Text>
+                <Text className='time'>{currentDate}</Text>
+            </View>
+        )
+    }
+
+    buildCheckout = (): React.ReactNode => {
+        return (
+            <View className='checkOutBox'>
+                <View className='checkText'>
+                    <AtIcon value='check-circle' size='20' color='#6190E8'></AtIcon>
+                    <Text style={{ marginLeft: '5px' }}>已打卡</Text>
+                </View>
+                <Text className='text'>升职加薪的路上，与优秀的人一起会走的更快哦~</Text>
+            </View>
+        )
     }
 
     render() {
@@ -106,8 +152,7 @@ export default class Index extends Component<any, States> {
                 url: 'https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNzE3ODI3Ng==&action=getalbum&album_id=1562397975996399618#wechat_redirect'
             }
         ]
-        const { isOpened, currentItem, date } = this.state
-        const currentDate = `${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds()}`
+        const { isOpened, currentItem, isChecked } = this.state
         return (
             <View className="home">
                 <Swiper
@@ -131,11 +176,16 @@ export default class Index extends Component<any, States> {
                 <OfficialAccount />
 
                 <View className='checkIn'>
-                    <View className='checkInBox'>
-                        <Text>打 卡</Text>
-                        <Text className='time'>{currentDate}</Text>
+                    <View onClick={this.handleCheckIn}>
+                        {
+                            isChecked ? this.buildCheckout() : this.buildCheckIn()
+                        }
                     </View>
-                    <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
+                    {
+                        isChecked ?
+                            <Button open-type="share" plain className='shareBtn'>去分享</Button> :
+                            <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
+                    }
                 </View>
 
                 <AtGrid className='grid' data={gridData} onClick={this.handleGridClick.bind(this)} />

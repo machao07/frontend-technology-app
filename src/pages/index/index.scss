@@ -83,6 +83,34 @@
       }
     }
 
+    .checkOutBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .checkText {
+        font-size: 28px;
+        color: #6190E8
+      }
+
+      .text {
+        margin-top: 10px;
+        font-size: 22px;
+        color: #aaa
+      }
+    }
+
+    .shareBtn {
+      margin-top: 20px;
+      font-size: 28px;
+      color: #6190E8;
+      border: 1px solid #6190E8;
+      background: #f3f6fb;
+      padding: 0 24px;
+      border-radius: 50px;
+    }
+
     .tip {
       margin-top: 20px;
       font-size: 22px;
