@@ -94,10 +94,14 @@ export default class Index extends Component<any, States> {
         const { date } = this.state
         const currentDate = `${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds()}`
         return (
-            <View className='checkInBox' >
-                <Text>打 卡</Text>
-                <Text className='time'>{currentDate}</Text>
-            </View>
+            <>
+                <View className='checkInBox' onClick={this.handleCheckIn}>
+                    <Text>打 卡</Text>
+                    <Text className='time'>{currentDate}</Text>
+                </View>
+                <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
+            </>
+
         )
     }
 
@@ -109,6 +113,7 @@ export default class Index extends Component<any, States> {
                     <Text style={{ marginLeft: '5px' }}>已打卡</Text>
                 </View>
                 <Text className='text'>升职加薪的路上，与优秀的人一起会走的更快哦~</Text>
+                <Button open-type="share" plain className='shareBtn'>去分享</Button>
             </View>
         )
     }
@@ -172,19 +177,13 @@ export default class Index extends Component<any, States> {
                 <AtNoticebar icon='volume-plus'>
                     GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
                 </AtNoticebar>
-
+                
+                {/* 引导关注公众号 */}
                 <OfficialAccount />
 
                 <View className='checkIn'>
-                    <View onClick={this.handleCheckIn}>
-                        {
-                            isChecked ? this.buildCheckout() : this.buildCheckIn()
-                        }
-                    </View>
                     {
-                        isChecked ?
-                            <Button open-type="share" plain className='shareBtn'>去分享</Button> :
-                            <Text className='tip'>千里之行始于足下，快来学习吧！</Text>
+                        isChecked ? this.buildCheckout() : this.buildCheckIn()
                     }
                 </View>
 
