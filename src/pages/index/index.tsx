@@ -4,7 +4,7 @@ import { AtNoticebar, AtGrid, AtModal, AtIcon } from 'taro-ui'
 import BannerImg from '../../assets/miniapp_banner.jpg'
 import './index.scss'
 import TabBar from '../../components/tarBar'
-import Taro from '@tarojs/taro'
+import Taro, { requestSubscribeMessage } from '@tarojs/taro'
 
 type itemDTO = {
     id: string
@@ -25,7 +25,7 @@ export default class Index extends Component<any, States> {
             isOpened: false,
             currentItem: null,
             date: new Date(),
-            isChecked: false
+            isChecked: Taro.getStorageSync('isChecked') ?? false
         }
     }
 
@@ -78,14 +78,15 @@ export default class Index extends Component<any, States> {
     handleCheckIn = () => {
         Taro.requestSubscribeMessage({
             tmplIds: ['PmKMv4oYopX_9ko9Td6R7FeDkkCpjs2hNR6KX6ELAvc'],
-            success: () => {
-                Taro.setStorageSync('isChecked', true)
-                this.setState({ isChecked: true })
-            },
-            fail: () => {
-                Taro.navigateTo({ url: '/pages/article/index?type=vue' })
-                Taro.setStorageSync('isChecked', true)
-                this.setState({ isChecked: true })
+            success: (res: any) => {
+                console.log(res)
+                if (res.PmKMv4oYopX_9ko9Td6R7FeDkkCpjs2hNR6KX6ELAvc === 'accept') {
+                    Taro.setStorageSync('isChecked', true)
+                    this.setState({ isChecked: true })
+                } else {
+                    Taro.navigateTo({ url: '/pages/article/index?type=vue' })
+                    Taro.setStorageSync('isChecked', true)
+                }
             }
         })
     }
@@ -95,7 +96,7 @@ export default class Index extends Component<any, States> {
         const currentDate = `${date.getHours() > 9 ? date.getHours() : '0' + date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds()}`
         return (
             <>
-                <View className='checkInBox' onClick={this.handleCheckIn}>
+                <View className='checkInBox' >
                     <Text>打 卡</Text>
                     <Text className='time'>{currentDate}</Text>
                 </View>
@@ -177,11 +178,11 @@ export default class Index extends Component<any, States> {
                 <AtNoticebar icon='volume-plus'>
                     GitHub正在整理前端技术栈面试知识点（持续更新中🏃）
                 </AtNoticebar>
-                
+
                 {/* 引导关注公众号 */}
                 <OfficialAccount />
 
-                <View className='checkIn'>
+                <View className='check' onClick={this.handleCheckIn.bind(this)}>
                     {
                         isChecked ? this.buildCheckout() : this.buildCheckIn()
                     }
