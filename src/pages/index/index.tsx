@@ -4,7 +4,7 @@ import { AtNoticebar, AtGrid, AtModal, AtIcon } from 'taro-ui'
 import BannerImg from '../../assets/miniapp_banner.jpg'
 import './index.scss'
 import TabBar from '../../components/tarBar'
-import Taro, { requestSubscribeMessage } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 
 type itemDTO = {
     id: string
