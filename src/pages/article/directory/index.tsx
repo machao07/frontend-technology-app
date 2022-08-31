@@ -3,15 +3,22 @@ import vue01 from '../../../md/vue/vue01.md'
 import vue02 from '../../../md/vue/vue02.md'
 import vue03 from '../../../md/vue/vue03.md'
 import vue04 from '../../../md/vue/vue04.md'
+import vue05 from '../../../md/vue/vue05.md'
 
 // react
 import react01 from '../../../md/react/react01.md'
 import react02 from '../../../md/react/react02.md'
+import react03 from '../../../md/react/react03.md'
 
 export const vueArticle = [
     {
+        name: 'vue中nextTick()原理',
+        time: '2022-08-24',
+        md: vue05
+    },
+    {
         name: 'vue.config.js 配置与项目优化',
-        time: '2022-08-16',
+        time: '2022-08-22',
         md: vue04
     },
     {
@@ -32,6 +39,11 @@ export const vueArticle = [
 ]
 
 export const reactArticle = [
+    {
+        name: 'redux用法',
+        time: '2022-08-24',
+        md: react03
+    },    
     {
         name: 'react项目组件通信',
         time: '2022-08-16',
