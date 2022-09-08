@@ -9,6 +9,7 @@ import vue05 from '../../../md/vue/vue05.md'
 import react01 from '../../../md/react/react01.md'
 import react02 from '../../../md/react/react02.md'
 import react03 from '../../../md/react/react03.md'
+import react04 from '../../../md/react/react04.md'
 
 export const vueArticle = [
     {
@@ -39,6 +40,11 @@ export const vueArticle = [
 ]
 
 export const reactArticle = [
+    {
+        name: 'redux用法',
+        time: '2022-09-08',
+        md: react04
+    },     
     {
         name: 'redux用法',
         time: '2022-08-24',
