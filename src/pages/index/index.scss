@@ -1,135 +1,135 @@
 .home {
-  width: 100%;
-  height: 100%;
-  background: #f1f1f1;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  overflow-y: auto;
-
-  .swiper {
-    .swiperItem {
-      width: 100%;
-      height: 300px;
-
-      .swiperImage {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-
-  .checkIn {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 0 20px 0;
-    background: #fff;
-    padding: 44px 0;
-
-    .checkInBox {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      background: #6190E8;
-      color: #fff;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-
-      &::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        width: 170px;
-        height: 170px;
-        background: #6190E8;
-        border-radius: 50%;
-        opacity: .4;
-        animation: bgScale 3s linear 1s infinite;
-        -webkit-animation: bgScale 3s linear 1s infinite;
-      }
-
-      @keyframes bgScale {
-        0% {
-          transform: scale(1)
-        }
-
-        25% {
-          transform: scale(1.2)
-        }
-
-        50% {
-          transform: scale(1.1)
-        }
-
-        100% {
-          transform: scale(1)
-        }
-      }
-
-      .text {
-        font-size: 24px;
-      }
-
-      .time {
-        margin-top: 10px;
-        font-size: 18px
-      }
-    }
-
-    .checkOutBox {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .checkText {
-        font-size: 30px;
-        color: #6190E8
-      }
-
-      .text {
-        margin-top: 10px;
-        font-size: 22px;
-        color: #aaa
-      }
-    }
-
-    .shareBtn {
-      margin-top: 20px;
-      font-size: 28px;
-      color: #6190E8;
-      border: 1px solid #6190E8;
-      background: #f3f6fb;
-      padding: 0 45px;
-      border-radius: 50px;
-    }
-
-    .tip {
-      margin-top: 20px;
-      font-size: 22px;
-      color: #aaa
-    }
-  }
-
-  .grid {
-    background: #fff;
-  }
-
-  .tabBar {
     width: 100%;
-    position: fixed;
+    height: 100%;
+    background: #f1f1f1;
+    position: absolute;
+    top: 0;
     bottom: 0;
-    left: 0;
-  }
+    overflow-y: auto;
 
-  .modal {
-    text-align: center;
-  }
+    .swiper {
+        .swiperItem {
+            width: 100%;
+            height: 300px;
+
+            .swiperImage {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .checkIn {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 0 20px 0;
+        background: #fff;
+        padding: 44px 0;
+
+        .checkInBox {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #6190e8;
+            color: #fff;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+                width: 170px;
+                height: 170px;
+                background: #6190e8;
+                border-radius: 50%;
+                opacity: 0.4;
+                animation: bgScale 3s linear 1s infinite;
+                -webkit-animation: bgScale 3s linear 1s infinite;
+            }
+
+            @keyframes bgScale {
+                0% {
+                    transform: scale(1);
+                }
+
+                25% {
+                    transform: scale(1.2);
+                }
+
+                50% {
+                    transform: scale(1.1);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            .text {
+                font-size: 24px;
+            }
+
+            .time {
+                margin-top: 10px;
+                font-size: 18px;
+            }
+        }
+
+        .checkOutBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .checkText {
+                font-size: 30px;
+                color: #6190e8;
+            }
+
+            .text {
+                margin-top: 10px;
+                font-size: 22px;
+                color: #aaa;
+            }
+        }
+
+        .shareBtn {
+            margin-top: 20px;
+            font-size: 28px;
+            color: #6190e8;
+            border: 1px solid #6190e8;
+            background: #f3f6fb;
+            padding: 0 45px;
+            border-radius: 50px;
+        }
+
+        .tip {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #aaa;
+        }
+    }
+
+    .grid {
+        background: #fff;
+    }
+
+    .tabBar {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+
+    .modal {
+        text-align: center;
+    }
 }

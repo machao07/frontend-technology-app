@@ -4,6 +4,7 @@ import vue02 from '../../../md/vue/vue02.md'
 import vue03 from '../../../md/vue/vue03.md'
 import vue04 from '../../../md/vue/vue04.md'
 import vue05 from '../../../md/vue/vue05.md'
+import vue06 from '../../../md/vue/vue06.md'
 
 // react
 import react01 from '../../../md/react/react01.md'
@@ -12,6 +13,11 @@ import react03 from '../../../md/react/react03.md'
 import react04 from '../../../md/react/react04.md'
 
 export const vueArticle = [
+    {
+        name: 'vue项目预渲染 & SEO',
+        time: '2022-09-09',
+        md: vue06
+    },    
     {
         name: 'vue中nextTick()原理',
         time: '2022-08-24',
@@ -41,7 +47,7 @@ export const vueArticle = [
 
 export const reactArticle = [
     {
-        name: 'redux用法',
+        name: 'ReactHooks中useEffect使用',
         time: '2022-09-08',
         md: react04
     },     
