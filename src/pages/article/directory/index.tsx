@@ -11,6 +11,7 @@ import react01 from '../../../md/react/react01.md'
 import react02 from '../../../md/react/react02.md'
 import react03 from '../../../md/react/react03.md'
 import react04 from '../../../md/react/react04.md'
+import react05 from '../../../md/react/react05.md'
 
 export const vueArticle = [
     {
@@ -46,6 +47,11 @@ export const vueArticle = [
 ]
 
 export const reactArticle = [
+    {
+        name: 'react项目封装省市区选择组件',
+        time: '2022-09-13',
+        md: react05
+    },      
     {
         name: 'ReactHooks中useEffect使用',
         time: '2022-09-08',
