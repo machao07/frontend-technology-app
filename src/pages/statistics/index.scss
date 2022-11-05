@@ -1,34 +1,33 @@
 .statistics {
-  .main {
-    padding-top: 25px;
+    .main {
+        padding-top: 25px;
 
-    .eChartTitle {
-      padding-left: 5%;
-      position: relative;
+        .eChartTitle {
+            padding-left: 5%;
+            position: relative;
 
-      &::before {
-        content: '';
-        position: absolute;
-        left: 16px;
-        bottom: 0;
-        top: 0;
-        width: 8px;
-        height: 100%;
-        background: #6190E8
-      }
+            &::before {
+                content: '';
+                position: absolute;
+                left: 16px;
+                bottom: 0;
+                top: 0;
+                width: 8px;
+                height: 100%;
+                background: #6190e8;
+            }
+        }
+
+        .canvas {
+            width: 100%;
+        }
+
+        .bar {
+            height: 500px;
+        }
+
+        .pie {
+            height: 630px;
+        }
     }
-
-    .canvas {
-      width: 100%;
-    }
-
-    .bar {
-      height: 500px
-    }
-
-    .pie {
-      height: 630px
-    }
-  }
-
 }

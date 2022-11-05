@@ -1,19 +1,19 @@
 .copyBtn {
-  margin: 30px 40px 0;
+    margin: 30px 40px 0;
 }
 
 .title {
-  padding-left: 20px;
-  position: relative;
+    padding-left: 20px;
+    position: relative;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    width: 8px;
-    height: 100%;
-    background: #6190E8
-  }
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        width: 8px;
+        height: 100%;
+        background: #6190e8;
+    }
 }
