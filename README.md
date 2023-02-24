@@ -25,6 +25,7 @@
 - Git Hook 工具：[husky](https://typicode.github.io/husky/#/) + [lint-staged](https://github.com/okonet/lint-staged)
 - 代码规范：[Prettier](https://prettier.io/) + [ESLint](https://eslint.org/)
 
-## 小程序码
+## 小程序体验 
+扫小程序码 或 搜索【前端进阶技术栈】
 
 ![mini-app](https://user-images.githubusercontent.com/39411010/190045751-528c4259-7267-41e2-bb01-b8bcc39b643c.jpg)
