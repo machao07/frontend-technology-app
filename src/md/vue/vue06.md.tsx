@@ -1,5 +1,5 @@
 // vue项目预渲染&SEO
-const vue05 = `
+const vue06 = `
 
 ### 预渲染
 - 多适用于静态网站
@@ -124,4 +124,4 @@ export default {
 <img width="780" alt="image" src="https://user-images.githubusercontent.com/39411010/177260314-20ce13e6-7025-4f6d-9339-443a942597ef.png">
 
 `
-export default vue05
+export default vue06
