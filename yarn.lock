@@ -12527,10 +12527,10 @@ taro-css-to-react-native@3.4.14:
     css-mediaquery "^0.1.2"
     postcss-value-parser "^3.3.0"
 
-taro-ui@^3.1.0-beta.2:
-  version "3.1.0-beta.2"
-  resolved "http://ebill.allinpalm.cn:4873/taro-ui/-/taro-ui-3.1.0-beta.2.tgz#dc4eea0475f74ac7391561af6206367205275404"
-  integrity sha512-iW649RaTV7F4EHhVtnavbp3TilIGcj4X/J+p955Br+c4l3ggZVmnCiCvKLCiIqZzSO5BvryR59f+THpoZbTKmQ==
+taro-ui@^3.2.0:
+  version "3.2.0"
+  resolved "http://ebill.allinpalm.cn:4873/taro-ui/-/taro-ui-3.2.0.tgz#daa861d91694544ec8d30ee2e4d9e412832cb239"
+  integrity sha512-C3A2DaWQ7yCgQQEEEVbGQLByc4Op86py/AgIk0HLDUvp5rzLkpPSyMZWY7TvYroyyyy+ARt6BmDcLinT80xUUw==
   dependencies:
     classnames "^2.2.6"
     dayjs "^1.7.7"
