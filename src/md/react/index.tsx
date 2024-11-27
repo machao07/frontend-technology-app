@@ -5,6 +5,7 @@ import react04 from './react04.md'
 import react05 from './react05.md'
 import react06 from './react06.md'
 import react07 from './react07.md'
+import react08 from './react08.md'
 
 export {
     react01,
@@ -14,4 +15,5 @@ export {
     react05,
     react06,
     react07,
+    react08,
 }
